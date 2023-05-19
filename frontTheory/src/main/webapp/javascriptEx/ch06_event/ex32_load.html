@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.box {width: 400px; height: 300px; border: 3px dotted gray; }
+</style>
+
+<script type="text/javascript">
+function init() {
+	const layout = document.querySelector("#layout");
+	
+	layout.onmouseover = function(e) {
+		// style : background-color
+		// javascript(carmel case 표기) : backgroundColor
+		// 자바스크립트에서 '-' 사용 불가. 그래서 carmel case 적용
+		layout.style.backgroundColor = '#ff0';
+		
+		//e.currentTarget.style.backgroundColor = '#ff0';
+	};
+	
+	layout.onmouseout = function() {
+		layout.style.backgroundColor = '';
+	}
+
+}
+
+//init();	// 안됨
+
+window.addEventListener('load', () => init());
+
+
+/*
+window.onload = function() {
+	
+}
+*/
+// 프로퍼티 방식으로 추가하지 말것. 중복이 안됨. 
+
+</script>
+
+
+
+
+</head>
+<body>
+
+<h3>load 이벤트</h3>
+<!-- 
+	스타일 등 모든 리소스를 포함하여 전체 페이지가 로드되면 이벤트가 시작 
+ -->
+
+<div id="layout" class="box"></div>
+
+</body>
+</html>

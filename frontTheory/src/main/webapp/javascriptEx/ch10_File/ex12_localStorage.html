@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>localStorage</h3>
+
+<p>
+	<input type="text" id="subject" placeholder="좋아하는과목">
+	<button type="button" onclick="addSubject()"> 추가 </button>
+	<button type="button" onclick="deleteSubject()"> 삭제 </button>
+</p>
+<div id="log"></div>
+
+<script type="text/javascript">
+viewSubject()
+
+function viewSubject() {
+	if(typeof(Storage) === "undefined"){
+		return;
+	}
+	
+	let ss = JSON.parse(localStorage.getItem('subject')) || [];	// JSON 암기. 중요.
+		// 객체는 저장하지 못함. 문자열로 바꿔서 저장. JSON.parse 와 JSON.stringfy 를 이용 
+		// undefined 는 parse가 안됨. null 이였으면 []가 들어감
+	let s = ss.join();
+	document.querySelector("#log").innerHTML = s;
+}
+
+function addSubject() {
+	if(typeof(Storage) === "undefined"){
+		return;
+	}
+	
+	const inputEl = document.querySelector("#subject");
+	let s = inputEl.value.trim();
+	if(! s) {
+		inputEl.focus();
+		return;
+	}
+	
+	let ss = JSON.parse(localStorage.getItem('subject')) || [];	// parse: 문자열을 객체로 바꿔주는 . 암기
+	// let subject = localStorage.subject;
+	// let ss = subject ? JSON.parse(subject) : []; 
+	
+	
+	ss.push(s);
+	
+	localStorage.setItem('subject', JSON.stringify(ss));	// stringify: 객체를 JSON 형식의 문자열로 바꿔주는 . 암기 
+	inputEl.value = "";
+	inputEl.focus();
+	
+	viewSubject()
+}
+
+function deleteSubject() {
+	const inputEl = document.querySelector("#subject");
+	let s = inputEl.value.trim();
+	
+	if(s){
+		let ss = JSON.parse(localStorage.getItem('subject')) || [];	
+		
+		let idx = ss.indexOf(s);
+		if(idx === -1) {
+			return;
+		} 
+		
+		ss.splice(idx, 1);	// idx 위치의 항목 1개 삭제
+		
+		localStorage.setItem('subject', JSON.stringify(ss));
+		
+		inputEl.value ="";
+		
+	} else {
+		localStorage.removeItem('subject');
+	}
+	
+	viewSubject();
+}
+
+
+
+</script>
+
+</body>
+</html>

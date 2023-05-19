@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>숫자로 변환 - parseInt, parseFloat</h3>
+
+<script type="text/javascript">
+var a, b;
+
+a = "123";
+console.log(a === 123);	// false
+console.log(a + 10);	// 12310
+
+b = parseInt(a);
+console.log(b === 123);	//true
+console.log(b + 10);	// 133
+
+a = "1,234";
+b = parseInt(a);
+console.log(b);	// 1. 숫자로 바꿀 수 있는데까지 바꿈 
+
+a = "123a45";
+b = parseInt(a);
+console.log(b);	// 123
+
+a = "a123";
+b = parseInt(a);
+console.log(b);	 // NaN(Not a Number)
+
+a = "123.456";
+b = parseInt(a);
+console.log(b);	// 123
+
+a = "";
+b = parseInt(a);
+console.log(b);	// NaN
+
+a = "       123";
+b = parseInt(a);
+console.log(b);	// 123. 앞에 공백은 없애줌
+
+a = "1 2 3";
+b = parseInt(a);
+console.log(b);	// 1. 중간 공백은 안없애줌
+
+a = "123.456";
+b = parseFloat(a);
+console.log(b);	// 123.456
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> prompt 와 confirm </h3>
+
+<p>
+	<button type = "button" onclick="sub1();">계산기</button>
+	<button type = "button" onclick="sub2();">삭제</button>
+</p>
+
+<script type="text/javascript">
+function sub1() {
+	let s = prompt("수식을 입력 하세요","");	// 잘 사용 x . 간단하게 입력받을때 사용 
+	let result = eval(s);
+	alert(s + " = " + result);
+}
+
+function sub2() {
+	if(confirm("게시글을 삭제 하시겠습니까 ? ")){	// confirm 은 자주 사용. 기억
+		alert("삭제 했습니다.");
+	}
+}
+
+
+</script>
+
+</body>
+</html>

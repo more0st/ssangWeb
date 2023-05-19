@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>forEach</h3>
+
+<p>
+일반적인 for 문장보다는 속도 느림
+</p>
+
+<script type="text/javascript">
+var arr = [1,2,3,4,5];
+var s = 0; 
+
+/*
+arr.forEach(function(item){
+	s += item;
+});
+*/
+
+arr.forEach((item)=> s+= item);
+
+console.log(s);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>객체 - 생성</h3>
+
+<script type="text/javascript">
+
+var s; 
+
+// 1. 객체 리터럴을 이용한 객체 생성
+//var obj = {'name':'홍길동', 'age':20};
+var obj = {name:'홍길동', age:20}; //{프로퍼티:값} 값에서 문자열에 ''없는건 안됨. 프로퍼티는 없어도돼.
+console.log(typeof obj);	// "object" . 콘솔창에 안보이지만 쌍따옴표 있는거임 
+console.log(obj);	// ▶Object 또는 {name: '홍길동', age: 20} 으로 표시.
+
+
+// 객체의 프로퍼티 접근 
+console.log(obj.name);
+
+// 속성 값 변경
+obj.name = '김자바';
+if(obj.age >= 10) {
+	s = `${obj.name} 님은 성인 입니다.`;
+} else {
+	s = `${obj.name} 님은 초딩 입니다.`;
+}
+
+console.log(s);
+
+obj.city = '서울';	// 동적으로 속성을 추가. 에러 x 
+console.log(obj);
+
+
+// 1. 객체 리터럴을 이용한 빈 객체 생성
+var obj2 = {};
+console.log(typeof obj2);
+console.log(obj2);
+
+obj2.subject = '자바';	// 실행시 동적으로 속성 추가 
+console.log(obj2);
+console.log(obj2.subject);
+
+
+
+//1. 객체 리터럴을 이용한 객체 생성
+var obj3 = {
+	name : '홍길동',
+	age : 20, 
+	state : function() {
+		return this.age >= 19 ? '성인' : '초딩';	// 매개변수 사용하는게 아니면 무조건 this 사용. 
+	},
+	msg : function() {
+		// 메소드에서 속성이나 다른 메소드를 호출할 때 this 생략 불가
+		let s = this.state();
+		let m = `${this.name} 님은 ${s} 입니다.`;
+		console.log(m);
+	}
+};
+
+console.log(obj3);
+obj3.msg();
+
+
+
+</script>
+
+</body>
+</html>

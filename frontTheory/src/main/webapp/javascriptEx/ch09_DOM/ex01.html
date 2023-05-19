@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>getElement 관련 함수</h3>
+
+<div>
+	<p>이름 : <input type="text" id="name"> </p>
+	<p>나이 : <input type="text" name="age"> </p>
+	<p>생년월일 : <input type="text"><input type="checkbox" checked="checked"> 양력 </p>
+	<p>전화번호 : <input type="text" class="telClass"> </p>
+	<p>과목 : 
+		<input type="text" name="subject"><br>
+		<input type="text" name="subject"><br>
+		<input type="text" name="subject">
+	</p>
+	<p>
+		<button type="button" onclick="result()"> 확인 </button>
+	</p>
+</div>
+<hr>
+
+<div id="resultLayout"></div>
+
+<script type="text/javascript">
+//css border 속성주기 
+const inputELS = document.querySelectorAll('input[type=text]');
+for(let el of inputELS){
+	el.style.border = '1px solid tomato';	// 문자열로 처리
+	el.style.backgroundColor = 'yellow';	// 원래 background-color 인데 {-} 못써서 camelCase 사용
+}
+
+function result() {
+	let str;
+	
+	// id로 접근
+	let name = document.getElementById('name').value;
+	
+	// name 속성으로 접근. 배열처리
+	let age = document.getElementsByName('age')[0].value;
+	
+	// 태그로 접근. 배열처리 <- 암기
+	let birth = document.getElementsByTagName('input')[2].value;
+	// let birth = document.querySelectorAll('input')[2].value;
+
+	// 선택자로 접근 <- 암기
+	let chk = document.querySelector('input[type=checkbox]').checked;
+		// querySelector - 똑같은거 2개 이상이면 첫번째꺼밖에 안나옴
+	//let chk = document.querySelectorAll('input[type=checkbox]')[0].checked;
+	
+	// class 속성으로 접근
+	let tel = document.getElementsByClassName('telClass')[0].value;
+	//let tel = document.querySelector('.telClass').value;
+	
+	str = '이름: ' + name + '<br>';
+	str += '나이: ' + age + '<br>';
+	str += '생년월일: ' + birth + ', 양력: '+ chk + '<br>';
+	str += '전화번호: ' + tel + '<br>';
+	
+	let subject = document.querySelectorAll('input[name="subject"]');
+	for(let el of subject){
+		str += '과목: ' + el.value + '<br>';
+	};
+	
+	document.querySelector('#resultLayout').innerHTML = str;
+	
+}
+</script>
+
+
+</body>
+</html>

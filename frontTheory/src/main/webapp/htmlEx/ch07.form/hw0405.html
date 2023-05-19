@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+
+<style type="text/css">
+body {
+	background: #35318F;
+	color: white;
+}
+
+.box {
+	width: 700px; margin: 30px auto;
+}
+
+.box ul {
+	padding: 5px 5px; clear: both;
+}
+
+.box ul > li {
+	list-style: none;
+	margin-top: 5px;
+}
+
+.form-input input {
+	width: 100%; 
+	height: 30px;
+	border: 0;
+	border-radius: 22px;
+}
+
+.form-input input:focus {
+	outline: none;
+  	box-shadow: 0 0 0 4px #e96c7c;
+}
+
+div {
+	margin-top: 10px auto;
+}
+
+form {
+	border: solid 2px white;
+	border-radius: 20px;
+}
+
+.half-left {
+	width: 48%;
+	clear: both;
+	float: left;
+	margin-top: 10px;
+	margin-right: 15px;
+}
+
+.half-right {
+	width: 48%;
+	float: left;
+	margin-top: 10px;
+}
+
+</style>
+
+<script type="text/javascript">
+function send() {
+	const f = document.myForm;
+	let s;
+	
+	s = f.id.value;
+	s += ", " + f.pwd.value;
+	s += ", " + f.name.value;
+	
+	alert(s);
+}
+</script>
+
+</head>
+<body>
+
+<div class="box">
+	<h2 style="margin: 5px 15px;">회원가입</h2>
+	
+	<form name="myForm" action="javascript:send()" method="post"> 
+		<div class="half-left">
+			<ul class="form-input">
+				<li>이름</li>
+				<li><input type="text" name="name" required="required"></li>
+			</ul>
+		</div>
+		
+		<div class="half-right">
+			<ul class="form-input">
+				<li>생년월일</li>
+				<li><input type="date" name="birth" required="required"></li>
+			</ul>
+		</div>
+		
+		<div class="half-left">
+			<ul class="form-input">
+				<li>아이디</li>
+				<li><input type="text" name="id" required="required" 
+						maxlength="10" pattern="[A-Za-z0-9]+"
+						placeholder="아이디를 입력하세요"></li>
+			</ul>
+		</div>
+		
+		<div class="half-right">
+			<ul class="form-input">
+				<li>비밀번호</li>
+				<li><input type="password" name="pwd" required="required" 
+					placeholder="비밀번호를 입력하세요"></li>
+			</ul>
+		</div>
+		
+		<div>
+			<ul class="form-input">
+				<li>이메일</li>
+				<li style="float: left;">
+					<select name="email">
+						<option value="">:: 선택 ::</option>
+						<option value="네이버">naver.com</option>
+						<option value="다음">daum.net</option>
+						<option value="구글">google.com</option>
+						<option value="기타">기타</option>
+					</select>
+				</li>
+				<li style="float:left; margin-left: 10px; width: 40%;">
+					<input type="text" name="emailId">
+				</li>
+				<li style="float: left; margin: 10px 5px;">
+				@
+				</li>
+				<li style="float:left; width: 40%;">
+					<input type="text" name="emailSite">
+				</li>
+			</ul>
+		</div>
+		
+		<div style="clear: both;">
+			<ul class="form-input">
+				<li>인증번호</li>
+				<li><input type="text" name="verifiedNumber" required="required" 
+						style="width: 48%;"></li>
+			</ul>
+		</div>
+		
+		<div>
+			<ul class="form-input">
+				<li>주소</li>
+				<li><input type="text" name="address" required="required"></li>
+			</ul>
+		</div>
+		
+		<p style="text-align: center; margin: 15px;">
+			<button type="submit" name="sendButton">회원가입</button> 
+			<button type="reset">다시입력</button> 
+			<button type="button">가입취소</button> 
+		</p>
+		
+	</form>
+	
+</div>
+
+</body>
+</html>

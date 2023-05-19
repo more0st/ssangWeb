@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>localStorage</h3>
+
+<!-- 
+	데이터 보존 기간 제한 없음. 지우지 않는 이상 영구적으로 유지
+	도메인 당 하나만 생성. 동일한 브라우저에서만 접근 가능  
+	쿠키를 이용한 설정을 대신할 수 있다. 
+ -->
+
+<p>
+	<button type="button" onclick="count()">증가</button>
+	<button type="button" onclick="deleteCount()">삭제</button>
+</p>
+
+<div id="log"></div>
+
+<script type="text/javascript">
+
+viewCount();
+
+function viewCount() {
+	if(typeof(Storage) === "undefined"){
+		return;
+	}
+	
+	let cnt = localStorage.count;
+	cnt = cnt ? cnt : "";
+	document.querySelector("#log").innerHTML = "카운트 횟수: " + cnt;
+}
+
+function count() {
+	if(typeof(Storage) === "undefined"){
+		return;
+	}
+	
+	// 웹 스토리지에 저장된 값 가져오기 
+	let cnt = localStorage.count;	// 비어있을때 속성으로 가져오면 undefined
+	//let cnt = localStorage.getItem("count");	// 비어있을때 메소드로 가져오면 null
+
+	cnt = cnt ? Number(cnt) + 1 : 1;
+	/*
+	 먼저, cnt라는 변수는 웹 스토리지에서 가져온 값으로 초기화됩니다. 
+	 그 다음, cnt가 Truthy 값인지 확인합니다. Truthy 값은 0을 제외한 모든 값입니다. 
+	 cnt가 Truthy 값이라면, cnt에 1을 더한 값으로 변수 cnt를 설정합니다. 
+	 cnt가 Falsy 값이라면, cnt를 1로 설정합니다.
+	*/
+	
+	// 웹 스토리지에 저장
+	localStorage.count = cnt;
+	//localStorage.setItem("count", cnt);
+	
+	viewCount();
+	
+}
+
+function deleteCount() {
+	if(typeof(Storage) === "undefined"){
+		return;
+	}
+	
+	delete localStorage.count;	// count라는 이름으로 저장된 값 삭제
+	//localStorage.removeItem("count");
+	
+	//localStorage에 저장된 모든 내용 삭제
+	//localStorage.clear();
+	viewCount();
+	
+	
+}
+
+</script>
+
+</body>
+</html>

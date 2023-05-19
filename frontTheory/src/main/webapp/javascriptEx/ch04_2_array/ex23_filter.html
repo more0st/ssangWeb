@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>filter() 함수</h3>
+
+<script type="text/javascript">
+var arr = [1,2,3,4,5,6,7,8,9,10];
+
+// 조건에 만족하는 요소만으로 새로운 배열 만들기 
+var arr2 = []; 
+
+/*
+for(let i=0; i< arr.length; i++) {
+	if(arr[i] % 2) {
+		arr2.push(arr[i]);
+	}
+}
+*/
+
+/*
+for(let a of arr) {
+	if(a%2) {
+		arr2.push(a);
+	}
+}
+*/
+
+
+arr.forEach(item => { if(item%2) arr2.push(item); } );
+console.log(arr2.join());
+
+
+// 조건에 만족한 요소만으로 새로운 배열 작성 : 홀수로 새로운 배열 만들기
+/*
+var arr3 = arr.filter(function(item, index) {
+	return item%2; // 참인 경우의 item 으로 만듦
+});
+*/
+var arr3 = arr.filter(item => item % 2);
+console.log(arr3.join());
+
+
+// 인덱스가 5 이상인 요소만으로 새로운 배열 만들기
+var arr4 = arr.filter((item,index) => index >= 5);
+console.log(arr4.join());
+
+
+</script>
+
+</body>
+</html>

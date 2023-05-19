@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.container {
+	background-color: #fff;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+}
+
+</style>
+
+</head>
+<body>
+
+<h3>fullscreen</h3>
+
+<div class="container">
+	<button type="button" onclick="enterFullscreen()">전체화면</button>
+	<button type="button" onclick="exitFull()">전체화면 취소</button>
+	<button type="button" onclick="toggleFullscreen()">전체화면 토글</button>
+</div>
+
+<script type="text/javascript">
+const fullscreen = elem => {
+	if( elem.requestFullscreen ) return elem.requestFullscreen();
+	if( elem.webkitRequestFullscreen ) return elem.webkitRequestFullscreen();
+	if( elem.mozRequestFullscreen ) return elem.mozRequestFullscreen();
+	if( elem.msRequestFullscreen ) return elem.msRequestFullscreen();
+};
+
+const cancelFullscreen = () => {
+	if( document.exitFullscreen ) return document.exitFullscreen();
+	if( document.webkitCancelFullscreen ) return document.webkitCancelFullscreen();
+	if( document.mozCancelFullscreen ) return document.mozCancelFullscreen();
+	if( document.msCancelFullscreen ) return document.msExitFullscreen();
+};
+
+function enterFullscreen() {
+	const container = document.querySelector('.container');
+	fullscreen(container);
+}
+
+function exitFull() {
+	cancelFullscreen();
+}
+
+function toggleFullscreen() {
+	if(! document.fullscreenElement ) {
+		const container = document.querySelector('.container');
+		fullscreen(container);
+	} else {
+		cancelFullscreen();
+	}
+	
+}
+
+
+
+</script>
+
+</body>
+</html>

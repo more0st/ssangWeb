@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.box {
+	width: 300px; height: 300px;
+	border: 3px dotted gray;
+	padding: 10px;
+}
+</style>
+
+
+</head>
+<body>
+
+<h3>ctrl + click</h3>
+
+<div class="box" id="resultLayout"></div>
+
+<script type="text/javascript">
+const box = document.querySelector(".box");
+
+box.addEventListener('click', e => {
+	if(e.ctrlKey) {
+		alert('ctrl+click');
+	}
+});
+
+
+</script>
+
+</body>
+</html>

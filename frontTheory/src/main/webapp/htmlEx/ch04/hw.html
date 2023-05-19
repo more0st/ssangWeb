@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+*{padding: 0; margin: 0;}
+*, *::after, *::before { box-sizing: border-box; }
+
+body {
+	font-family: 맑은 고딕, 나눔고딕, 돋움, sans-serif;
+	font-size: 17px;
+	color: #222;
+}
+
+main, .header, .footer { width: 1000px; margin: 0 auto; }
+
+.header {
+	font-size: 30px;
+	font-weight: 700;
+	padding: 15px;
+	text-align: center;
+}
+
+.picture {
+	position: relative;
+	float:left;
+	width: 15%;
+	border: 1px solid #777;
+	height: 170px;
+	overflow: hidden;
+}
+
+.picture img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.table {width: 100%; border-spacing: 0; border-collapse: collapse; margin-bottom: 10px;}
+
+.person{
+	float:left;
+	width: 84%;
+	margin-left: 10px;
+	border-top: 2px solid #333; border-bottom: 1px solid #ced4da;
+}
+.person tr {border-bottom: 1px solid #333;}
+.person th { padding: 5px 10px; width: 120px; font-size: 17px; font-weight: 700; background: #E8DAB3;}
+.person td { text-align: left; padding-left: 10px;}
+
+.title {
+	font-size: 17px; font-weight: 700; padding: 5px 15px; background: #E8DAB3;
+	border-top: 2px solid black;
+}
+
+.table-body{
+	clear: both;
+}
+.table-body th {padding: 5px 10px; font-size: 17px; font-weight: 700; text-align: center;}
+.table-body td {padding: 3px 10px; text-align: center;}
+
+.table-border thead > tr { border-top: 2px solid #333; border-bottom: 2px solid #333; }
+.table-border tbody > tr { border-bottom: 1px solid #333; }
+.table-border tbody {border-bottom: 2px solid #333;}
+
+.school td:nth-child(5n+2) { text-align: left;}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+	<p>입 사 지 원 서</p>
+</header>
+
+<main>
+	<div>
+		<div class="picture">
+			<img src="111.png">
+		</div>
+		
+		<table class="table person">
+			<tr>
+				<th>성&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;명</th>
+				<td width="170">이자바</td>
+				<th>영&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문</th>
+				<td width="180">Lee Java</td>
+				<th>한&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문</th>
+				<td></td>
+			</tr>
+			<tr>
+				<th>생년월일</th>
+				<td colspan="3">2003년 10월 10일</td>
+				<th>나이(만)</th>
+				<td></td>
+			</tr>
+			<tr>
+				<th>휴대폰</th>
+				<td></td>
+				<th>전화번호</th>
+				<td colspan="3"></td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td colspan="4">javalee@spring.com</td>
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td colspan="4">서울시 마포구 월드컵북로 21</td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<div class="table-body">
+		<div class="title">
+			학력사항 <span style="font-size: 16px;">(최종학력: 00대학교 졸업 예정)</span> 
+		</div>
+		<table class="table table-border school">
+			<thead>
+				<tr>
+					<th style="width: 300px;">재학기간</th>
+					<th>학교명</th>
+					<th style="width: 160px;">전공</th>
+					<th style="width: 130px;">학점</th>
+					<th style="width: 170px;">소재지</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td>2015년 3월 2일 ~ 2018년 2월 3일</td>
+					<td>00 고등학교</td>
+					<td>-</td>
+					<td></td>
+					<td>서울시 마포구</td>
+				</tr>
+				
+				<tr>
+					<td>2018년 3월 2일 ~ 2023년 2월 1일</td>
+					<td>00 대학교</td>
+					<td>컴퓨터공학과</td>
+					<td>4.1/4.5</td>
+					<td>서울시 마포구</td>
+				</tr>
+				
+				<tr>
+					<td>-</td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<div class="table-body">
+		<div class="title">
+			자격증
+		</div>
+		<table class="table table-border">
+			<thead>
+				<tr>
+					<th style="width: 300px;">자격증명</th>
+					<th>취득일</th>
+					<th style="width: 160px;">등급</th>
+					<th>발행처</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td>정보처리기사</td>
+					<td>2022년 3월 2일</td>
+					<td>-</td>
+					<td>한국산업인력관리공단</td>
+				</tr>
+				
+				<tr>
+					<td>-</td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		
+	</div>
+	
+	
+	
+</main>
+
+</body>
+
+</html>

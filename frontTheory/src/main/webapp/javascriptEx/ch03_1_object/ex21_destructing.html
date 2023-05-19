@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>구조 분해(비 구조화)</h3>
+
+리액트에서 많이 쓰인다. 
+
+<script type="text/javascript">
+var arr = []; 
+
+var [a,b,c] = arr; // 기본 변수 할당 
+console.log(a);
+console.log(b);
+console.log(c);
+
+// 선언에서 분리하여 할당 
+var x, y;
+[x, y] = [1,2];
+console.log(x);	// 1
+console.log(y);	// 2
+
+var a2, b2;
+[a2=5, b2=10] = [1];
+console.log(a2);	// 1
+console.log(b2);	// 10
+
+</script>
+
+
+</body>
+</html>

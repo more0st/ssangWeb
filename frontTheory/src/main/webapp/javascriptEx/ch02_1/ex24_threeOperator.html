@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+
+
+<body>
+
+<h3>연산자-조건(삼항)</h3>
+
+<p>
+	<input type= "text" id= "inputs" placeholder="나이를 입력하세요">
+	<button type="button" onclick="result()">확인</button>
+</p>
+<hr>
+
+<div id = "resultLayout"></div>
+
+<script type="text/javascript">
+function result() {
+	let age = document.querySelector("#inputs").value;
+	// 입력한건 다 문자 
+	
+	if(! age) {
+		alert("나이를 입력하세요.");
+		document.querySelector("#inputs").focus();
+		// querySelector 로 id 찾음
+		return;	
+	}
+	
+	//console.log(typeof(age));	// string. 입력 - 다 문자로 입력됨 
+	
+	let s, out; 
+	
+	s = age >= 19 ? "성인" : "미성년자";
+	
+	out = "<p style='color:blue'>결과: " + s + "</p>";
+	document.querySelector("#resultLayout").innerHTML = out;
+	
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>노드 찾기</h3>
+
+<div class="layout">
+	<p><a>HTML</a></p>
+	<p class="css"> <a>CSS</a> <span>sdsd</span> </p>
+	<p>
+		<a>javascript</a>
+		<span>jquery</span>
+	</p>
+</div>
+<hr>
+
+
+<div class="ss">
+	<div class="s">
+		<div class="c1">javascript</div>	
+		<div class="c2">css</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	// 첫번째 자식
+	var pEl = document.querySelector(".layout .css");
+	//console.log(pEl.firstChild); // 공백. #text 로 읽어버림. 첫번째자식(태그, 공백, 텍스트도 포함). 
+	console.log(pEl.firstElementChild);	// 첫번째자식(태그만) : <a> 
+	console.log(pEl.children[1]);	// <span>
+	
+	// 부모 찾기
+	var aEl = pEl.firstElementChild;
+	console.log( aEl.parentElement );	// 부모(태그만) : <p>
+	
+	// 가장 가까운 조상찾기. 매우중요! 암기. 
+	console.log( aEl.closest('div'));	// 가장 가까운 조상. layout
+		// parentNode : 부모(빈 공간도 포함). 잘 안씀 
+	
+	// 모든 자식들 
+	var divEl = document.querySelector(".ss .s");
+	console.log(divEl);
+	console.log(divEl.childNodes);	// 모든 자식(공백, 텍스트 포함)
+	console.log(divEl.children);	// 모든 자식(태그만)
+	
+	// 형제 찾기
+	var dcEl = document.querySelector(".c1");
+	console.log(dcEl.nextSibling);	// 형제(공백, 텍스트 포함) #text
+	console.log(dcEl.nextElementSibling);	// 형제(태그만) 
+				// next ~ : 다음 형제만 보인다. 
+	
+	// 텍스트 찾기 
+	var s = dcEl.firstChild.nodeValue;
+	console.log(s);	//javascript
+
+</script>
+
+
+</body>
+</html>
