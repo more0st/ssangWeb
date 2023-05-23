@@ -30,7 +30,10 @@ public class BoardServlet extends MyServlet {
 		req.setCharacterEncoding("utf-8");
 
 		String uri = req.getRequestURI();
-
+		
+		/*
+		// LoginFilter로 처리
+		
 		// 세션 정보
 		HttpSession session = req.getSession();
 		SessionInfo info = (SessionInfo) session.getAttribute("member");
@@ -45,6 +48,7 @@ public class BoardServlet extends MyServlet {
 			forward(req, resp, "/WEB-INF/views/member/login.jsp");
 			return;
 		}
+		*/
 
 		// uri에 따른 작업 구분
 		if (uri.indexOf("list.do") != -1) {

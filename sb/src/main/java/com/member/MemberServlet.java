@@ -91,8 +91,16 @@ public class MemberServlet extends MyServlet {
 			// 세션에 member이라는 이름으로 저장
 			session.setAttribute("member", info);
 
-			// 메인화면으로 리다이렉트
-			resp.sendRedirect(cp + "/");
+			String preLoginURI = (String)session.getAttribute("preLoginURI");
+			session.removeAttribute("preLoginURI");
+			if(preLoginURI == null) {
+				// 메인화면으로 리다이렉트
+				resp.sendRedirect(cp + "/");
+			} else {
+				// 로그인 전 페이지로 리다이렉트 
+				resp.sendRedirect(preLoginURI);
+			}
+			
 			return;
 		}
 
